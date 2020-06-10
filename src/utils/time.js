@@ -33,7 +33,7 @@ export const getMsValueFromNumber = (days, hours, minutes, seconds) => (
 
 const plur = (variable, name) => {
     if (variable <= 0) return '';
-    return `${variable} ${name}${variable > 1 ? 's' : ''} `;
+    return `${ variable } ${ name }${variable > 1 ? 's' : ''} `;
 }
 
 const getTimeDifference = (timeInMs) => {

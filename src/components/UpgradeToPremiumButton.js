@@ -9,7 +9,7 @@ const UpgradeToPremiumButton = () => {
   const firebase = useFirebase();
 
   const uid = localStorage.getItem('uid');
-  const isLoading = useSelector(({ firebase }) => firebase.requesting[`settings/${uid}`]);
+  const isLoading = useSelector(({ firebase }) => firebase.requesting[`settings/${ uid }`]);
   const { [uid]: settings } = useSelector(({ firebase }) => firebase.data.settings) || {};
 
   const [isShowButton, setShowButton] = useState(true);
@@ -17,7 +17,7 @@ const UpgradeToPremiumButton = () => {
 
   const showAlert = () => {
     setShowAlert(true);
-    firebase.set(`settings/${uid}/premium`, true);
+    firebase.set(`settings/${ uid }/premium`, true);
   }
 
   const hideAlert = () => {

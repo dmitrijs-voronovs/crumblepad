@@ -63,7 +63,7 @@ const NoteAddPage = ({ match: { url }, history }) => {
             firebase.push(`notes/${ uid }`, newNote);
             dispatch(displayMessage('New note was added'));
         } else {
-            firebase.update(`notes/${ uid }/${noteId}`, newNote);
+            firebase.update(`notes/${ uid }/${ noteId }`, newNote);
             dispatch(displayMessage('Note was updated'));
         }
 
@@ -83,7 +83,7 @@ const NoteAddPage = ({ match: { url }, history }) => {
                 </IonToolbar>
             </IonHeader>
             <IonContent>
-                <NoteInputs note={note} setNote={setNote} expirationOptions={expirationOptions} />
+                <NoteInputs note={ note } setNote={ setNote } expirationOptions={ expirationOptions } />
                 <IonFab vertical="bottom" horizontal="end" slot="fixed">
                     <IonFabButton onClick={ addNoteAndRedirect } color="orange">
                         <IonIcon icon={ checkmark } />

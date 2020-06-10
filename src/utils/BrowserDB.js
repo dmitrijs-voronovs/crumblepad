@@ -5,7 +5,7 @@ export const FieldNames = {
 };
 
 export const setItem = (name, item = '') => {
-    localStorage.setItem(name, `${item}`);
+    localStorage.setItem(name, `${ item }`);
 }
 
 export const setObject = (name, object = {}) => {

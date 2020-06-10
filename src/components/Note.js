@@ -95,21 +95,6 @@ const Note = (props) => {
       : ` ${ titleShort } `;
   }
 
-  const renderShort = () => {
-    let text = content.substring(0,100);
-
-    let lines = text.split("\n");
-    text = "";
-    for ( let i = 0; i < 4 && i < lines.length; i++ ) {
-      text += lines[i];
-      if ( i < 3 ) text += "\n";
-    }
-
-    if (content.length > 100) text = text.substring(0,97).concat("...");
-
-    return ` ${ text } `;
-  }
-
   const renderDeleteButton = () => {
     const actions = {
       DELETE: () => firebase.remove(notePath),

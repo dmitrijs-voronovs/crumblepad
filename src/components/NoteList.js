@@ -7,7 +7,7 @@ import Note from './Note';
 
 const NoteList = () => {
   const uid = localStorage.getItem('uid');
-  const isLoading = useSelector(({ firebase }) => firebase.requesting[`notes/${uid}`]);
+  const isLoading = useSelector(({ firebase }) => firebase.requesting[`notes/${ uid }`]);
   const { [uid]: notes = {} } = useSelector(({ firebase }) => firebase.data.notes) || {};
 
   const activeNotes = Object.entries(notes || {}).reduce((acc, [key, note]) => (

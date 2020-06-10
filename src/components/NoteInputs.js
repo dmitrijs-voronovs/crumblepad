@@ -50,11 +50,11 @@ const NoteInputs = ({ note, setNote, expirationOptions }) => {
         <IonLabel position="floating">Expiration</IonLabel>
         <IonSelect
           onChange={ onSelectChange }
-          interfaceOptions={customActionSheetOptions}
+          interfaceOptions={ customActionSheetOptions }
           interface="alert"
           placeholder="Select One"
         >
-          { Object.entries(expirationOptions || {}).map(([name, { title, val }], i) => (
+          { Object.entries(expirationOptions || {}).map(([name, { title, _ }], i) => (
             <IonSelectOption key={ name } selected={ i === expirationOption } value={ name }>
               { title }
             </IonSelectOption>

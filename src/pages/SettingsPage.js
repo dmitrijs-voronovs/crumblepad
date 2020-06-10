@@ -30,7 +30,7 @@ const SettingsPage = ({ location: { pathname = '' }, match: { path = '' } }) => 
   const firebase = useFirebase();
   const uid = localStorage.getItem('uid');
   const settings = useSelector(({ firebase }) => firebase.data.settings) || {};
-  const isRequesting = useSelector(({ firebase }) => firebase.requesting[`settings/${uid}`]);
+  const isRequesting = useSelector(({ firebase }) => firebase.requesting[`settings/${ uid }`]);
 
   const { [uid]: user = {} } = settings || {};
   const { expirationOptions = defaultExpirationOptions } = user || {};
@@ -69,8 +69,8 @@ const SettingsPage = ({ location: { pathname = '' }, match: { path = '' } }) => 
       [expOptCount]: customExpirationTime
     }
     setExpOpts(allExpirationOptions);
-    setExpOptionOrder([...expOptionOrder, `${expOptCount}`]);
-    firebase.set(`settings/${uid}/expirationOptions`, allExpirationOptions);
+    setExpOptionOrder([...expOptionOrder, `${ expOptCount }`]);
+    firebase.set(`settings/${ uid }/expirationOptions`, allExpirationOptions);
   };
 
   const deleteExpirationOption = (e) => {
@@ -96,7 +96,7 @@ const SettingsPage = ({ location: { pathname = '' }, match: { path = '' } }) => 
       const convertedOptions = expOptionOrder.reduce((acc, pos, i) => (
         { ...acc, [i]: expOpts[pos] }
         ), {});
-      firebase.set(`settings/${uid}/expirationOptions`, convertedOptions);
+      firebase.set(`settings/${ uid }/expirationOptions`, convertedOptions);
     }
   }, [isOnSettingsPage])
 
@@ -113,9 +113,9 @@ const SettingsPage = ({ location: { pathname = '' }, match: { path = '' } }) => 
       <>
         <IonButton className="ExceptionOptionsAddOptionButton" onClick={ onButtonClick }>Add option</IonButton>
         <ExpirationTimePicker
-          isPickerOpen={isPickerOpen}
-          setIsPickerOpen={setIsPickerOpen}
-          updateExpiratonOptions={updateExpiratonOptions}
+          isPickerOpen={ isPickerOpen }
+          setIsPickerOpen={ setIsPickerOpen }
+          updateExpiratonOptions={ updateExpiratonOptions }
         />
       </>
     );
@@ -125,9 +125,9 @@ const SettingsPage = ({ location: { pathname = '' }, match: { path = '' } }) => 
     if (isRequesting) return <Loader />;
 
     return Object.entries(expOpts).map(([id, { title, val }]) => (
-      <IonItem key={id}>
+      <IonItem key={ id }>
         <IonLabel className="ExpirationOptionsLabel">
-          {`${title} (${timeLeft(new Date().getTime() + val, true)})`}
+          {`${ title } (${timeLeft(new Date().getTime() + val, true)})`}
         </IonLabel>
         { expOptionOrder.length === 1 ? null : (
           <IonButton className="ion-no-margin ExpirationOptionsButton" color="secondary" id={ id } slot="end" onClick={ deleteExpirationOption }>
@@ -146,7 +146,7 @@ const SettingsPage = ({ location: { pathname = '' }, match: { path = '' } }) => 
       <IonCard>
         <IonCardHeader>Expiration options</IonCardHeader>
         <IonCardContent className="SettingsCard">
-          <IonReorderGroup disabled={false} onIonItemReorder={doReorder}>
+          <IonReorderGroup disabled={ false } onIonItemReorder={ doReorder }>
             {renderExpirationOptions()}
           </IonReorderGroup>
           { renderDatePicker() }
