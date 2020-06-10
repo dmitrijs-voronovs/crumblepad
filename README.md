@@ -11,10 +11,15 @@ Let's get ready to crumble!
 * [Build Your First Ionic React App](https://ionicframework.com/docs/react/your-first-app)
 * [Components to use](https://ionicframework.com/docs/components)
 
+## Regular installation
+
+1. `git clone https://github.com/dmitrijs-voronovs/crumblepad.git && cd crumblepad`
+2. `npm run ci && npm run start`
+
 ## installation for developers
 
 1. `npm install -g ionic@latest`
-2. `git clone https://github.com/M-Frikken/crumblepad.git`
+2. `git clone git@github.com:dmitrijs-voronovs/crumblepad.git`
 3. `cd crumblepad`
 4. `npm i`
 5. `git checkout development`
@@ -36,5 +41,3 @@ Let's get ready to crumble!
 
 > In case you are not logged into firebase run
 `firebase login`
-
-`npm run deploy`
